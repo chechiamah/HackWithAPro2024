@@ -6,50 +6,40 @@ import { cn } from "../utils/cn";
 
 export default function Page() {
 
-    const router = useRouter();
+    const handleSubmit = () => {
+        console.log("submmitted");
+    }
+    // const router = useRouter();
 
     return (
-        <div className="backdrop-blur-sm  w-full mx-auto rounded-2xl p-4 md:p-8  bg-white">
+        <div>
+        {/* <div className="backdrop-blur-sm  w-full mx-auto rounded-2xl p-4 md:p-8  bg-white"> */}
         <h2 className="font-bold text-xl text-[#2774AE] dark:text-[#2774AE]">
-          Have a question? Contact us!
+          Survey Questions
         </h2>
-        <form className="my-8 bg-white rounded">
+        <form className="my-8 bg-white rounded" onSubmit={handleSubmit}>
           <LabelInputContainer className="mb-4">
-            <Label htmlFor="email">Email Address</Label>
+            <Label htmlFor="email">Question 1</Label>
             <Input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="email"
-              placeholder="das@cs.ucla.edu"
-              type="email"
+              placeholder="I want to to get rich"
+              type="text"
             />
           </LabelInputContainer>
-          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
-            <LabelInputContainer>
-              <Label htmlFor="firstname">First name</Label>
-              <Input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="firstname"
-                placeholder="David"
-                type="text"
-              />
-            </LabelInputContainer>
-            <LabelInputContainer>
-              <Label htmlFor="lastname">Last name</Label>
-              <Input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="lastname"
-                placeholder="Smallberg"
-                type="text"
-              />
-            </LabelInputContainer>
-          </div>
           <LabelInputContainer className="mb-4">
-            <Label htmlFor="password">Question? Concerns? Comments?</Label>
+            <Label htmlFor="email">Question 2</Label>
+            <Input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              placeholder="I want to get very rich"
+              type="text"
+            />
+          </LabelInputContainer>
+          <LabelInputContainer className="mb-4">
+            <Label htmlFor="password">Question 3</Label>
             <textarea
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="question"
-              type="question"
-              placeholder="Why do I want to switch majors? I don't want to do CS anymore"
+              type="text"
+              placeholder="I love Hack with A Pro"
             />
           </LabelInputContainer>
 
@@ -60,7 +50,8 @@ export default function Page() {
             Send
           </button>
         </form>
-      </div>
+    </div>
+    //   </div>
     );
 }
 
