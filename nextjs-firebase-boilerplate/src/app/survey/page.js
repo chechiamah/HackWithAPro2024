@@ -2,14 +2,21 @@
 import { useRouter } from 'next/navigation';
 import { Label } from "../components/Label";
 import { Input } from "../components/Input";
+import {useState} from "react";
 import { cn } from "../utils/cn";
 
 export default function Page() {
+    const [ans1, setAns1] = useState("");
+    const [ans2, setAns2] = useState("");
+    const [ans3, setAns3] = useState("");
+    const router = useRouter();
 
-    const handleSubmit = () => {
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         console.log("submmitted");
+        if(!ans1 || !ans2 || !ans3) return;
+        else console.log(ans1 + ans2 + ans3);
     }
-    // const router = useRouter();
 
     return (
         <div>
@@ -24,6 +31,7 @@ export default function Page() {
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="I want to to get rich"
               type="text"
+              onChange={(e) => setAns1(e.target.value)}
             />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
@@ -32,6 +40,7 @@ export default function Page() {
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="I want to get very rich"
               type="text"
+              onChange={(e) => setAns2(e.target.value)}
             />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
@@ -40,6 +49,7 @@ export default function Page() {
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="text"
               placeholder="I love Hack with A Pro"
+              onChange={(e) => setAns3(e.target.value)}
             />
           </LabelInputContainer>
 
