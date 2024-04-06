@@ -6,14 +6,15 @@ from langchain.vectorstores.chroma import Chroma        #Database to store the l
 import os, shutil
 from pdfminer.high_level import extract_text
 
-DATA_PATH = "/Users/adityacode/Desktop/LA Hacks 2024/HackWithAPro2024/AI_Study_Model/Data"
-CHROMA_PATH = "/Users/adityacode/Desktop/LA Hacks 2024/HackWithAPro2024/AI_Study_Model/Chroma_DB"
+DATA_PATH = "Data"
+CHROMA_PATH = "Chroma_DB"
 PROMPT_TEMPLATE = ""
 
-
-
-
 def main():
+    if not os.path.exists(DATA_PATH):
+        os.makedirs(DATA_PATH)
+    if not os.path.exists(CHROMA_PATH):
+        os.makedirs(CHROMA_PATH)
     #convert_pdf_to_markdown("/Users/adityacode/Desktop/LA Hacks 2024/HackWithAPro2024/AI_Study_Model/Data/Notes_test1.pdf")
     load_data()
 
@@ -47,10 +48,6 @@ def split_text(documents: list[Document]):
     )
     chunks = text_splitter.split_documents(documents)
     print(f"Split {len(documents)} documents into {len(chunks)} chunks.")
-
-    document = chunks[10]
-    print(document.page_content)
-    print(document.metadata)
 
     return chunks
 
