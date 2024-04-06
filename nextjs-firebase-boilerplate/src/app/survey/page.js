@@ -5,6 +5,7 @@ import { Input } from "../components/Input";
 import {useState} from "react";
 import { cn } from "../utils/cn";
 
+
 export default function Page() {
     const [ans1, setAns1] = useState("");
     const [ans2, setAns2] = useState("");
@@ -22,7 +23,7 @@ export default function Page() {
         <div>
         {/* <div className="backdrop-blur-sm  w-full mx-auto rounded-2xl p-4 md:p-8  bg-white"> */}
         <h2 className="font-bold text-xl text-[#2774AE] dark:text-[#2774AE]">
-          Survey Questions
+          Mental Questions
         </h2>
         <form className="my-8 bg-white rounded" onSubmit={handleSubmit}>
           <LabelInputContainer className="mb-4">
@@ -44,6 +45,11 @@ export default function Page() {
               onChange={(e) => setAns2(e.target.value)}
             />
           </LabelInputContainer>
+
+
+          <label for="minmax-range" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Min-max range</label>
+          <input id="minmax-range" type="range" min="0" max="10" value="5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"/>
+
           <LabelInputContainer className="mb-4">
             <Label htmlFor="password">On a scale from 1 to 5 (1 =least, 5= most) how motivated do you feel today?
 </Label>
@@ -55,8 +61,7 @@ export default function Page() {
             />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
-            <Label htmlFor="email">On a scale from 1 to 5 (1 =worst, 5= best) how well do you manage your work-life balance?
-</Label>
+            <Label htmlFor="email">On a scale from 1 to 5 (1 =worst, 5= best) how well do you manage your work-life balance?</Label>
             <Input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="I want to get very rich"
@@ -64,6 +69,9 @@ export default function Page() {
               onChange={(e) => setAns2(e.target.value)}
             />
           </LabelInputContainer>
+        <h2 className="font-bold text-xl text-[#2774AE] dark:text-[#2774AE]">
+          Goals Questions
+        </h2>
 
           <button
             className="relative group/btn w-full text-white h-10 font-bold bg-[#2774AE] btn overflow-hidden rounded-xl uppercase -- before:block before:absolute before:h-full before:w-1/2 before:rounded-full before:bg-orange-400 before:top-0 before:left-1/4 before:transition-transform before:opacity-0 before:hover:opacity-100 hover:text-[#FFD100] hover:before:animate-ping transition-all duration-300 hover:-translate-y-1 transform hover:shadow-md"
