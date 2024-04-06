@@ -5,10 +5,12 @@ import os, shutil
 import argparse
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
+from dotenv import load_dotenv
 
 CHROMA_PATH = "/Users/adityacode/Desktop/LA Hacks 2024/HackWithAPro2024/AI_Study_Model/Chroma_DB"
+#os.environ["OPENAI_API_KEY"] = "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"
 
-os.environ["OPENAI_API_KEY"] = "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"
+load_dotenv('../.env')
 
 PROMPT_TEMPLATE = """
 Answer the question based only on the following context:
@@ -42,7 +44,7 @@ def main():
     prompt = prompt_template.format(context=context_text, question=query_text)
     print(prompt)
 
-    model = ChatOpenAI()
+    model = ChatOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     response_text = model.invoke(prompt)
 
     sources = [doc.metadata.get("source", None) for doc, _score in results]

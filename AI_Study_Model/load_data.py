@@ -4,15 +4,14 @@ from langchain.schema import Document
 from langchain_openai import OpenAIEmbeddings
 from langchain.vectorstores.chroma import Chroma        #Database to store the langchain chunk data
 import os, shutil
-from langchain_openai import ChatOpenAI
-from langchain.prompts import ChatPromptTemplate
 from pdfminer.high_level import extract_text
 
 DATA_PATH = "/Users/adityacode/Desktop/LA Hacks 2024/HackWithAPro2024/AI_Study_Model/Data"
 CHROMA_PATH = "/Users/adityacode/Desktop/LA Hacks 2024/HackWithAPro2024/AI_Study_Model/Chroma_DB"
 PROMPT_TEMPLATE = ""
 
-os.environ["OPENAI_API_KEY"] = "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"
+#os.environ["OPENAI_API_KEY"] = "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"
+
 
 def main():
     #convert_pdf_to_markdown("/Users/adityacode/Desktop/LA Hacks 2024/HackWithAPro2024/AI_Study_Model/Data/Notes_test1.pdf")
