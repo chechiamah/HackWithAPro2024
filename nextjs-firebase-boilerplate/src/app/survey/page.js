@@ -36,7 +36,7 @@ export default function Page() {
             />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
-            <Label htmlFor="email">Question 2</Label>
+            <Label htmlFor="email">On a scale from 1 to 5 (1 =least, 5= most) how would you rate your stress levels today?</Label>
             <Input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="I want to get very rich"
@@ -45,12 +45,23 @@ export default function Page() {
             />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
-            <Label htmlFor="password">Question 3</Label>
+            <Label htmlFor="password">On a scale from 1 to 5 (1 =least, 5= most) how motivated do you feel today?
+</Label>
             <textarea
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="text"
               placeholder="I love Hack with A Pro"
               onChange={(e) => setAns3(e.target.value)}
+            />
+          </LabelInputContainer>
+          <LabelInputContainer className="mb-4">
+            <Label htmlFor="email">On a scale from 1 to 5 (1 =worst, 5= best) how well do you manage your work-life balance?
+</Label>
+            <Input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              placeholder="I want to get very rich"
+              type="text"
+              onChange={(e) => setAns2(e.target.value)}
             />
           </LabelInputContainer>
 
