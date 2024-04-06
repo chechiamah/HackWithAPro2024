@@ -10,7 +10,7 @@ DATA_PATH = "/Users/adityacode/Desktop/LA Hacks 2024/HackWithAPro2024/AI_Study_M
 CHROMA_PATH = "/Users/adityacode/Desktop/LA Hacks 2024/HackWithAPro2024/AI_Study_Model/Chroma_DB"
 PROMPT_TEMPLATE = ""
 
-#os.environ["OPENAI_API_KEY"] = "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"
+
 
 
 def main():
