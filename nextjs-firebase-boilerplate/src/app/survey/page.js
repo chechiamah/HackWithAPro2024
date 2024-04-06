@@ -26,7 +26,8 @@ export default function Page() {
         </h2>
         <form className="my-8 bg-white rounded" onSubmit={handleSubmit}>
           <LabelInputContainer className="mb-4">
-            <Label htmlFor="email">Question 1</Label>
+            <Label htmlFor="email">Overall, on a scale 1 to 5 (1 =worst, 5= best) how would you rate your overall happiness today?
+</Label>
             <Input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="I want to to get rich"
