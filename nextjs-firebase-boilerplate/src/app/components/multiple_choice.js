@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ({setAns, id}) {
+export default function MultipleChoice({setAns, id}) {
 
     return (  
         <>

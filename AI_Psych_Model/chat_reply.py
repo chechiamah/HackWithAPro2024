@@ -1,7 +1,27 @@
 from langchain_openai import ChatOpenAI
+from pydantic import BaseModel
 import os
+import json
 
+from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 
+app = FastAPI()
+
+# Add CORS to the application
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)  
+
+@app.post("/test")
+def test_request(data: Request):
+    data = data.json()
+    response = gen_response(data)
+    return {"message": response}
 
 def gen_response(data = {}):
     if len(data) == 0:

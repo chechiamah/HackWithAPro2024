@@ -40,30 +40,40 @@ export default function Page() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if(!ans1 || !ans2 || !ans3 || !ans4 || !ans5) return;
+        // if(!ans1 || !ans2 || !ans3 || !ans4 || !ans5) return;
         // else console.log(ans1 + ans2 + ans3 + ans4 + ans5);
 
         const data = compile_data();
-        try {
-            const response = fetch('/api/endpoint', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(data)
-            });
-            const responseData = response.json();
-            console.log('Response from backend:', responseData);
-          } catch (error) {
-            console.error('Error sending data to backend:', error);
-          }
+        // try {
+        //     const response = fetch('http://localhost:8000/test', {
+        //       method: 'POST',
+        //       headers: {
+        //         'Content-Type': 'application/json'
+        //       },
+        //       body: JSON.stringify(data)
+        //     });
+        //     const responseData = response.json();
+        //     console.log('Response from backend:', responseData);
+        //   } catch (error) {
+        //     console.error('Error sending data to backend:', error);
+        //   }
         
+        const response = fetch("http://localhost:8000/test", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => response.json())
+            .then((response) => {
+              console.log(response.detail[0]);
+            });
 
         // how to call a python function from
 
-        const dataToSend = ["paragraph1", "paragraph2", "paragraph3"];
-        sessionStorage.setItem('survey_output', JSON.stringify(dataToSend));
-        router.push(`/output`);
+        // sessionStorage.setItem('survey_output', JSON.stringify(dataToSend));
+        // router.push(`/output`);
         }
 
     return (
