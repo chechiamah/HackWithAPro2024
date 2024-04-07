@@ -28,17 +28,18 @@ export default function Page() {
     function compile_data() {
         const suffix = " out of 5";
         const result = {
-            q1: ans1 + suffix,
-            q2: ans2 + suffix,
-            q3: ans3 + suffix,
-            q4: ans4 + suffix,
-            q5: ans5 + suffix,
-            q6: ans6
+            q1: q1, q2: q2, q3: q3, q4: q4, q5: q5, q6: q6,
+            a1: ans1 + suffix,
+            a2: ans2 + suffix,
+            a3: ans3 + suffix,
+            a4: ans4 + suffix,
+            a5: ans5 + suffix,
+            a6: ans6
         }
         return result;
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         // if(!ans1 || !ans2 || !ans3 || !ans4 || !ans5) return;
         // else console.log(ans1 + ans2 + ans3 + ans4 + ans5);
@@ -58,16 +59,16 @@ export default function Page() {
         //     console.error('Error sending data to backend:', error);
         //   }
         
-        const response = fetch("http://localhost:8000/test", {
+        const response = await fetch("http://localhost:8000/test", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify({a: "", b: "love"}),
           })
             .then((response) => response.json())
             .then((response) => {
-              console.log(response.detail[0]);
+              console.log(response);
             });
 
         // how to call a python function from
