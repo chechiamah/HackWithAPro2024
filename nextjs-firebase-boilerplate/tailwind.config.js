@@ -8,9 +8,10 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'top-left': "url('/images/purple_blob.jpg')",
+        'top-right': "url('/images/purple_blob.svg')",
+        'bottom-left': "url('/images/purple_blob.svg')",
+        'bottom-right': "url('/images/purple_blob.svg')",
       },
     },
   },

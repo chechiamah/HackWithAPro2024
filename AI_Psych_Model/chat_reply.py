@@ -1,45 +1,31 @@
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel
 import os
+import json
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
 
 # Add CORS to the application
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )  
 
-class Survey_Data(BaseModel):
-    q1: str
-    q2: str
-    q3: str
-    q4: str
-    q5: str
-    q6: str
-    a1: str
-    a2: str
-    a3: str
-    a4: str
-    a5: str
-    a6: str
-
 @app.post("/test")
-def test_request(data: Survey_Data):
-    q1, q2, q3, q4, q5, q6 = data.q1, data.q2, data.q3, data.q4, data.q5, data.q6
-    a1, a2, a3, a4, a5, a6 = data.a1, data.a2, data.a3, data.a4, data.a5, data.a6
-    data = {q1:a1, q2:a2, q3:a3, q4:a4, q5:a5, q6:a6}
-    result = gen_response(data)
-    return {"message": result}
+def test_request(data: Request):
+    data = data.json()
+    response = gen_response(data)
+    return {"message": response}
 
 def gen_response(data = {}):
-    if len(data) == 0:
+    if data == None or len(data) == 0:
         return []
     
     prompt_template = "Given the results of a survey in Question/Answer format, answer the following Prompt in a numbereed list format: return three suggestions to improve the user's mental health If the user seems healthy, then return the phrase \"5\ with no additional text."". Survey responses:\n\n"
@@ -59,7 +45,7 @@ def gen_response(data = {}):
     suggestions = []
     for i in range(0,3):
         suggestions.append(response_list[i])
-    
+    print(suggestions)
     return suggestions
 
 sample_data = {

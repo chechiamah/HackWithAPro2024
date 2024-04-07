@@ -64,7 +64,7 @@ export default function Page() {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({a: "", b: "love"}),
+            body: JSON.stringify(data),
           })
             .then((response) => response.json())
             .then((response) => {

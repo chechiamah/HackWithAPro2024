@@ -4,7 +4,7 @@ from langchain.schema import Document
 from langchain_openai import OpenAIEmbeddings
 from langchain.vectorstores.chroma import Chroma        #Database to store the langchain chunk data
 import os, shutil
-from pdfminer.high_level import extract_text
+from pdfminer.high_level import extract_text # type: ignore
 
 DATA_PATH = "Data"
 CHROMA_PATH = "Chroma_DB"
