@@ -7,6 +7,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
 
+
 app = FastAPI()
 
 # Add CORS to the application
